@@ -12,11 +12,11 @@ import (
 func OpenCommand() *cli.Command {
 	return &cli.Command{
 		Name:  "open",
-		Usage: "Open apps for a specific context",
+		Usage: "Open programs for a specific command",
 		Action: func(c *cli.Context) error {
-			context := c.Args().First()
-			if context == "" {
-				return fmt.Errorf("please provide a context (e.g., dev, design)")
+			command := c.Args().First()
+			if command == "" {
+				return fmt.Errorf("please provide a command (e.g., dev, design)")
 			}
 
 			cfg, err := config.LoadConfig("assets/config.json")
@@ -24,16 +24,16 @@ func OpenCommand() *cli.Command {
 				return fmt.Errorf("failed to load config: %v", err)
 			}
 
-			apps, ok := cfg[context]
+			programs, ok := cfg[command]
 			if !ok {
-				return fmt.Errorf("context '%s' not found in config", context)
+				return fmt.Errorf("command '%s' not found in config", command)
 			}
 
-			for _, app := range apps {
-				if err := launcher.Launch(app); err != nil {
-					log.Printf("failed to launch %s: %v", app, err)
+			for _, program := range programs {
+				if err := launcher.Launch(program); err != nil {
+					log.Printf("failed to launch %s: %v", program, err)
 				} else {
-					fmt.Printf("Launched %s successfully!\n", app)
+					fmt.Printf("Launched %s successfully!\n", program)
 				}
 			}
 
