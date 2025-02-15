@@ -28,7 +28,5 @@ func Launch(app string) error {
 	if err := cmd.Run(); err != nil {
 		return fmt.Errorf("failed to launch %s: %v", app, err)
 	}
-
-	fmt.Printf("Launched %s successfully!\n", app)
 	return nil
 }
