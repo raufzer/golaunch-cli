@@ -13,6 +13,7 @@ func main() {
 		Name:  "golaunch",
 		Usage: "Launch your favorite apps with a single command",
 		Commands: []*cli.Command{
+			cmd.StartCommand(), // New start command
 			cmd.SetupCommand(), // New setup command
 			cmd.OpenCommand(),  // Open command
 		},
