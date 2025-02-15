@@ -1,6 +1,11 @@
-# Golaunch CLI
+# GoLaunch CLI
 
-**Golaunch** is a command-line tool that allows you to launch multiple programs with a single command. Whether you're a developer, designer, or power user, Golaunch simplifies your workflow by letting you define custom commands to open your favorite apps instantly.
+<p align="center">
+  <img src="assets/GoLaunchLogo.png" alt="Golaunch Logo">
+</p>
+
+
+**GoLaunch** is a command-line tool that allows you to launch multiple programs with a single command. Whether you're a developer, designer, or power user, Golaunch simplifies your workflow by letting you define custom commands to open your favorite apps instantly.
 
 ---
 
