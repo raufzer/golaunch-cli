@@ -1,4 +1,4 @@
 {
-    "dev": ["code", "chrome", "terminal"],
-    "design": ["photoshop", "illustrator"]
-  }
+  "dev": ["VSCODE_PATH", "CHROME_PATH", "TERMINAL_PATH"],
+  "design": ["PHOTOSHOP_PATH"]
+}
