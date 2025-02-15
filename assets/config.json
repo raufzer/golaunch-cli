@@ -1,5 +1,17 @@
 {
-  "command_1": ["APP_1_PATH", "APP_2_PATH", "APP_3_PATH"],
-  "command_2": ["APP_4_PATH", "APP_5_PATH", "APP_6_PATH"],
-  "command_3": ["APP_7_PATH", "APP_8_PATH", "APP_9_PATH"]
+  "command_1": [
+    "APP_1_PATH",
+    "APP_2_PATH",
+    "APP_3_PATH"
+  ],
+  "command_2": [
+    "APP_4_PATH",
+    "APP_5_PATH",
+    "APP_6_PATH"
+  ],
+  "command_3": [
+    "APP_7_PATH",
+    "APP_8_PATH",
+    "APP_9_PATH"
+  ]
 }
