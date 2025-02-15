@@ -36,7 +36,7 @@
    ```
 2. Build the executable:
    ```bash
-   go build -o golaunch
+   go build -o golaunch.exe
    ```
 3. Move the executable to a directory in your PATH:
 
