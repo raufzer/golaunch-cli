@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os/exec"
 	"runtime"
+	"strings"
 )
 
 // Launch opens an app based on the OS
@@ -12,7 +13,9 @@ func Launch(app string) error {
 
 	switch runtime.GOOS {
 	case "windows":
-		cmd = exec.Command("cmd", "/c", "start", app) // Windows: start the app
+		// On Windows, use the full path to the executable
+		// Wrap the path in quotes to handle spaces
+		cmd = exec.Command("cmd", "/c", "start", "", strings.TrimSpace(app))
 	case "darwin": // macOS
 		cmd = exec.Command("open", "-a", app) // macOS: open the app
 	case "linux":
