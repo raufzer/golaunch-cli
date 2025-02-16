@@ -4,8 +4,7 @@
   <img src="assets/GoLaunchLogo.png" alt="Golaunch Logo">
 </p>
 
-
-**GoLaunch** is a command-line tool that allows you to launch multiple programs with a single command. Whether you're a developer, designer, or power user, Golaunch simplifies your workflow by letting you define custom commands to open your favorite apps instantly.
+**GoLaunch** is a command-line tool that allows you to launch multiple programs with a single command. Whether you're a developer, designer, or power user, GoLaunch simplifies your workflow by letting you define custom commands to open your favorite apps instantly.
 
 ---
 
@@ -20,62 +19,44 @@
 
 ## Installation
 
-### Prerequisites
-- [Go](https://golang.org/dl/) (if building from source)
-- Git (optional)
+### Using Homebrew (Recommended)
+```bash
+brew tap raufzer/homebrew-tap
+brew install golaunch
+```
 
-### Download the Executable
-1. Download the latest release for your operating system from the [Releases page](https://github.com/raufzer/golaunch-cli/releases).
-2. Move the executable to a directory in your system’s PATH (e.g., `/usr/local/bin` on macOS/Linux or `C:\Windows\System32` on Windows).
+### Manual Installation
+Download pre-built binaries from the [Releases page](https://github.com/raufzer/golaunch-cli/releases).
 
-### Build from Source
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/golaunch-cli.git
-   cd golaunch-cli
-   ```
-2. Build the executable:
-   ```bash
-   go build -o golaunch.exe
-   ```
-3. Move the executable to a directory in your PATH:
-
-   **Windows:**
-   ```bash
-   move golaunch.exe C:\Windows\System32\
-   ```
-
-   **macOS/Linux:**
-   ```bash
-   sudo mv golaunch /usr/local/bin/
-   ```
+### From Source
+```bash
+git clone https://github.com/raufzer/golaunch-cli.git
+cd golaunch-cli
+go build -o golaunch ./cmd/golaunch
+sudo mv golaunch /usr/local/bin/
+```
 
 ---
 
-## Usage
+## Quick Start
 
 ### Initialize the CLI
 Run the following command to create the necessary configuration files:
-
 ```bash
 golaunch start
 ```
 
 ### Set Up Custom Commands
 Use the setup command to define custom commands and associate them with programs:
-
 ```bash
 golaunch setup
 ```
-
 Follow the prompts to:
-
 - Enter a custom command (e.g., `dev`, `design`).
 - Add the paths to the programs you want to launch (e.g., `C:\Program Files\Google\Chrome\Application\chrome.exe`).
 
 ### Launch Programs
 Use the `open` command to launch programs associated with a custom command:
-
 ```bash
 golaunch open dev
 ```
@@ -129,6 +110,16 @@ The configuration is stored in `assets/config.json`. Here’s an example:
 
 ---
 
+## Uninstall
+
+### Using Homebrew
+```bash
+brew uninstall golaunch
+brew untap raufzer/homebrew-tap
+```
+
+---
+
 ## Contributing
 
 Contributions are welcome! Here’s how you can help:
@@ -152,4 +143,4 @@ Contributions are welcome! Here’s how you can help:
 
 ## License
 
-Abd Raouf Zerkhef zerkhefraouf90@gmail.com
+Abd Raouf Zerkhef - [zerkhefraouf90@gmail.com](mailto:zerkhefraouf90@gmail.com)
