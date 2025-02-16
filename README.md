@@ -25,7 +25,7 @@ brew tap raufzer/homebrew-golaunch-cli
 brew install golaunch
 ```
 
-### Windows & Other Platforms (Manual Installationp
+### Windows & Other Platforms (Manual Installation)
 Download pre-built binaries from the [Releases page](https://github.com/raufzer/golaunch-cli/releases).
 
 ### From Source
