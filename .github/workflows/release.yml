@@ -52,5 +52,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/golaunch-cli:${{ github.ref_name }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/golaunch-cli:latesty
+            ${{ secrets.DOCKERHUB_USERNAME }}/golaunch-cli-docker:${{ github.ref_name }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/golaunch-cli-docker:latesty
