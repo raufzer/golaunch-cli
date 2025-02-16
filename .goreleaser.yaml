@@ -1,0 +1,39 @@
+version: 2
+
+before:
+  hooks:
+    - go mod download
+
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    dir: .
+    main: ./cmd/golaunch
+
+archives:
+  - format: tar.gz
+
+checksum:
+  name_template: 'checksums.txt'
+
+release:
+  github:
+    owner: raufzer
+    name: golaunch-cli
+
+brews:
+  - name: golaunch
+    repository:
+      owner: raufzer
+      name: homebrew-tap
+    description: "Launch your favorite apps with a single command"
+    homepage: "https://github.com/raufzer/golaunch-cli"
+    install: |
+      bin.install "golaunch"
