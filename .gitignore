@@ -24,3 +24,5 @@ go.work
 .env.test
 .env.production
 
+# Added by goreleaser init:
+dist/
