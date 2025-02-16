@@ -20,10 +20,7 @@
 ## Installation
 
 ### macOS & Linux (Using Homebrew) – Recommended 
-```bash
-brew tap raufzer/homebrew-golaunch-cli
-brew install golaunch-cli
-```
+Follow steps on the [GoLaunch Homebrew Tap Repository](https://github.com/raufzer/homebrew-golaunch-cli).
 
 ### Windows & Other Platforms (Manual Installation)
 Download pre-built binaries from the [Releases page](https://github.com/raufzer/golaunch-cli/releases).
