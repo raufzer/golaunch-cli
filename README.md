@@ -22,7 +22,7 @@
 ### macOS & Linux (Using Homebrew) – Recommended 
 ```bash
 brew tap raufzer/homebrew-golaunch-cli
-brew install golaunch
+brew install golaunch-cli
 ```
 
 ### Windows & Other Platforms (Manual Installation)
@@ -114,8 +114,8 @@ The configuration is stored in `assets/config.json`. Here’s an example:
 
 ### Using Homebrew
 ```bash
-brew uninstall golaunch
-brew untap raufzer/homebrew-tap
+brew uninstall golaunch-cli
+brew untap raufzer/homebrew-golaunch-cli
 ```
 
 ---
