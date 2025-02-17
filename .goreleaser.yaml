@@ -32,7 +32,7 @@ brews:
   - name: golaunch
     repository:
       owner: raufzer
-      name: homebrew-tap
+      name: homebrew-golaunch-cli
     description: "Launch your favorite apps with a single command"
     homepage: "https://github.com/raufzer/golaunch-cli"
     install: |
