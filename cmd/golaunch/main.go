@@ -18,6 +18,7 @@ func main() {
 			commands.SetupCommand(),
 			commands.OpenCommand(),
 			commands.ListCommand(),
+			commands.VersionCommand(),
 		},
 	}
 
