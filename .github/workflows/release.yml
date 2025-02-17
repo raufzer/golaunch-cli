@@ -25,12 +25,18 @@ jobs:
           go-version: 1.23
 
       - name: Install GoReleaser
-        run: go install github.com/goreleaser/goreleaser@latest
+        run: |
+          go install github.com/goreleaser/goreleaser@latest
+          export PATH=$HOME/go/bin:$PATH
+          goreleaser --version
+
+      - name: Verify GoReleaser
+        run: goreleaser --version
 
       - name: Run GoReleaser
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: goreleaser release --snapshot --skip-publish --clean
+        run: goreleaser release --clean  # Remove --snapshot for real releases
 
   build-docker:
     name: Build and Push Docker Image
@@ -58,7 +64,6 @@ jobs:
       - name: Extract version tag
         id: extract_tag
         run: |
-          # Extract the tag name from the Git reference (e.g., refs/tags/v1.1.5)
           TAG_NAME=${GITHUB_REF#refs/tags/}
           echo "Extracted tag: $TAG_NAME"
           echo "tag_name=$TAG_NAME" >> $GITHUB_OUTPUT
@@ -69,8 +74,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ env.DOCKER_IMAGE }}:${{ steps.extract_tag.outputs.tag_name }}
-            ${{ env.DOCKER_IMAGE }}:latest
+            raufzer/golaunch-cli-docker:${{ steps.extract_tag.outputs.tag_name }}
+            raufzer/golaunch-cli-docker:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
