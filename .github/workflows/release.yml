@@ -22,7 +22,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: 1.23
+          go-version: '1.23'
 
       - name: Install GoReleaser
         run: |
@@ -34,6 +34,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: goreleaser release --clean
+
+      - name: Upload GoReleaser Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: goreleaser-artifacts
+          path: dist/
 
   build-docker:
     name: Build and Push Docker Image
@@ -91,9 +97,15 @@ jobs:
           token: ${{ secrets.TOKEN }}
           path: homebrew-tap
 
+      - name: Download GoReleaser artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: goreleaser-artifacts
+          path: dist/
+
       - name: Copy Homebrew Formula from GoReleaser Artifacts
         run: |
-          cp dist/golaunch.rb homebrew-tap/Formula/ 
+          cp dist/golaunch.rb homebrew-tap/Formula/
           cd homebrew-tap
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
