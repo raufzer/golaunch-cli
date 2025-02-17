@@ -19,6 +19,9 @@ func main() {
 			commands.OpenCommand(),
 			commands.ListCommand(),
 			commands.VersionCommand(),
+			commands.AddCommand(),
+			commands.RemoveCommand(),
+			commands.EditCommand(),
 		},
 	}
 
