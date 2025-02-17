@@ -27,11 +27,8 @@ jobs:
       - name: Install GoReleaser
         run: |
           go install github.com/goreleaser/goreleaser@2.7.0
-          export PATH=$HOME/go/bin:$PATH
+          echo "$HOME/go/bin" >> $GITHUB_PATH
           goreleaser --version
-
-      - name: Verify GoReleaser
-        run: goreleaser --version
 
       - name: Run GoReleaser
         env:
