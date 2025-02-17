@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Important for GoReleaser to get all tags
       
       - name: Setup Go
         uses: actions/setup-go@v5
@@ -34,6 +36,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: goreleaser release --clean
+      
+      - name: List dist directory contents
+        run: |
+          echo "Contents of dist directory:"
+          ls -la dist/
+          find dist -name "*.rb" || echo "No .rb files found"
       
       - name: Upload GoReleaser artifacts
         uses: actions/upload-artifact@v4
@@ -103,9 +111,29 @@ jobs:
           name: goreleaser-artifacts
           path: dist/
       
+      - name: List downloaded artifacts
+        run: |
+          echo "Contents of dist directory after download:"
+          ls -la dist/
+          find dist -name "*.rb" || echo "No .rb files found in dist"
+      
       - name: Copy Homebrew Formula from GoReleaser Artifacts
         run: |
-          cp dist/golaunch.rb homebrew-tap/Formula/
+          # First, make sure the Formula directory exists
+          mkdir -p homebrew-tap/Formula
+          
+          # Find any .rb file in the dist directory
+          RB_FILE=$(find dist -name "*.rb" | head -n 1)
+          
+          if [ -n "$RB_FILE" ]; then
+            echo "Found .rb file: $RB_FILE"
+            cp "$RB_FILE" homebrew-tap/Formula/golaunch.rb
+            echo "Copied $RB_FILE to homebrew-tap/Formula/golaunch.rb"
+          else
+            echo "No .rb files found in dist directory"
+            exit 1
+          fi
+          
           cd homebrew-tap
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
