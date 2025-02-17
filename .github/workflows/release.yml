@@ -9,6 +9,7 @@ on:
 
 jobs:
   release:
+    name: Release
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -29,7 +30,7 @@ jobs:
       - name: Run GoReleaser
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: goreleaser --rm-dist
+        run: goreleaser release --snapshot --skip-publish --clean
 
   build-docker:
     name: Build and Push Docker Image
