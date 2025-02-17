@@ -26,7 +26,7 @@ jobs:
 
       - name: Install GoReleaser
         run: |
-          go install github.com/goreleaser/goreleaser@latest
+          go install github.com/goreleaser/goreleaser@2.7.0
           export PATH=$HOME/go/bin:$PATH
           goreleaser --version
 
@@ -36,7 +36,7 @@ jobs:
       - name: Run GoReleaser
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        run: goreleaser release --clean  # Remove --snapshot for real releases
+        run: goreleaser release --clean
 
   build-docker:
     name: Build and Push Docker Image
