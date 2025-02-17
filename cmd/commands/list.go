@@ -12,24 +12,25 @@ func ListCommand() *cli.Command {
 		Name:    "list",
 		Aliases: []string{"ls"},
 		Usage:   "List all existing commands",
-		Action: func(c *cli.Context) error {
-
-			cfg, err := config.LoadConfig("assets/config.json")
-			if err != nil {
-				return fmt.Errorf("failed to load config: %v", err)
-			}
-
-			if len(cfg) == 0 {
-				fmt.Println("No commands have been set up yet.")
-				return nil
-			}
-
-			fmt.Println("Setup commands:")
-			for command := range cfg {
-				fmt.Printf(" - %s\n", command)
-			}
-
-			return nil
-		},
+		Action:  listCommand,
 	}
+}
+func listCommand(c *cli.Context) error {
+
+	cfg, err := config.LoadConfig("assets/config.json")
+	if err != nil {
+		return fmt.Errorf("failed to load config: %v", err)
+	}
+
+	if len(cfg) == 0 {
+		fmt.Println("No commands have been set up yet.")
+		return nil
+	}
+
+	fmt.Println("Setup commands:")
+	for command := range cfg {
+		fmt.Printf(" - %s\n", command)
+	}
+
+	return nil
 }
