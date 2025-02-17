@@ -4,8 +4,9 @@ import (
 	"log"
 	"os"
 
-	"github.com/urfave/cli/v2"
 	"golaunch-cli/cmd/commands"
+
+	"github.com/urfave/cli/v2"
 )
 
 func main() {
@@ -16,6 +17,7 @@ func main() {
 			commands.StartCommand(),
 			commands.SetupCommand(),
 			commands.OpenCommand(),
+			commands.ListCommand(),
 		},
 	}
 
