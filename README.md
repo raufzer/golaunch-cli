@@ -19,13 +19,10 @@
 
 ## Installation
 
-### Using Homebrew (Recommended)
-```bash
-brew tap raufzer/homebrew-tap
-brew install golaunch
-```
+### macOS & Linux (Using Homebrew) – Recommended 
+Follow steps on the [GoLaunch Homebrew Tap Repository](https://github.com/raufzer/homebrew-golaunch-cli).
 
-### Manual Installation
+### Windows & Other Platforms (Manual Installation)
 Download pre-built binaries from the [Releases page](https://github.com/raufzer/golaunch-cli/releases).
 
 ### From Source
@@ -114,8 +111,8 @@ The configuration is stored in `assets/config.json`. Here’s an example:
 
 ### Using Homebrew
 ```bash
-brew uninstall golaunch
-brew untap raufzer/homebrew-tap
+brew uninstall golaunch-cli
+brew untap raufzer/homebrew-golaunch-cli
 ```
 
 ---
