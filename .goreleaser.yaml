@@ -16,6 +16,7 @@ builds:
       - arm64
     dir: .
     main: ./cmd/golaunch
+    binary: golaunch
 
 archives:
   - format: tar.gz
