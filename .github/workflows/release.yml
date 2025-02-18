@@ -19,7 +19,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Important for GoReleaser to get all tags
+          fetch-depth: 0
       
       - name: Setup Go
         uses: actions/setup-go@v5
@@ -119,10 +119,8 @@ jobs:
       
       - name: Copy Homebrew Formula from GoReleaser Artifacts
         run: |
-          # First, make sure the Formula directory exists
           mkdir -p homebrew-tap/Formula
-          
-          # Find any .rb file in the dist directory
+
           RB_FILE=$(find dist -name "*.rb" | head -n 1)
           
           if [ -n "$RB_FILE" ]; then
@@ -137,6 +135,10 @@ jobs:
           cd homebrew-tap
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add Formula/golaunch.rb
-          git commit -m "feat: update golaunch to ${{ github.ref_name }}"
-          git push
+          git add Formula/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "feat: update golaunch to ${{ github.ref_name }}"
+            git push
+          fi
