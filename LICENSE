@@ -6,7 +6,7 @@ Copyright (C) 2024 Abd Raouf Zerkhef
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 
-### Preamble
+- Preamble
 
 The GNU General Public License is a free, copyleft license for software and other kinds of works.
 
@@ -14,9 +14,8 @@ The licenses for most software and other practical works are designed to take aw
 
 To protect your rights, we need to prevent others from denying you these rights or asking you to surrender them. Therefore, you have certain responsibilities if you distribute copies of the software or if you modify it: responsibilities to respect the freedom of others.
 
-For a full copy of the GNU General Public License, visit: [https://www.gnu.org/licenses/gpl-3.0.en.html](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
-### Terms and Conditions
+- Terms and Conditions
 
 1. You may copy, distribute, and modify the software as long as you track changes/dates in source files. Any modifications to or software including (via compiler) GPL-licensed code must also be made available under the GPL along with build & install instructions.
 2. You can use this software for commercial purposes, but you must disclose the source code and license it under GPLv3.
