@@ -14,13 +14,18 @@
 - **Cross-Platform**: Works on Windows, macOS, and Linux.
 - **Easy Setup**: Interactive setup process to add programs and commands.
 - **Lightweight**: Built with Go, it’s fast and efficient.
+- **Homebrew Support**: Install and update via Homebrew for macOS & Linux.
+- **Docker Support**: Run GoLaunch as a containerized app.
 
 ---
 
 ## Installation
 
-### macOS & Linux (Using Homebrew) – Recommended 
-Follow steps on the [GoLaunch Homebrew Tap Repository](https://github.com/raufzer/homebrew-golaunch-cli).
+### macOS & Linux (Using Homebrew) – Recommended
+```bash
+brew tap raufzer/homebrew-golaunch-cli
+brew install golaunch-cli
+```
 
 ### Windows & Other Platforms (Manual Installation)
 Download pre-built binaries from the [Releases page](https://github.com/raufzer/golaunch-cli/releases).
@@ -31,6 +36,12 @@ git clone https://github.com/raufzer/golaunch-cli.git
 cd golaunch-cli
 go build -o golaunch ./cmd/golaunch
 sudo mv golaunch /usr/local/bin/
+```
+
+### Using Docker
+```bash
+docker pull raufzer/golaunch-cli-docker:latest
+docker run --rm raufzer/golaunch-cli-docker golaunch
 ```
 
 ---
@@ -115,6 +126,11 @@ brew uninstall golaunch-cli
 brew untap raufzer/homebrew-golaunch-cli
 ```
 
+### Remove Docker Image
+```bash
+docker rmi raufzer/golaunch-cli-docker
+```
+
 ---
 
 ## Contributing
@@ -141,3 +157,4 @@ Contributions are welcome! Here’s how you can help:
 ## License
 
 Abd Raouf Zerkhef - [zerkhefraouf90@gmail.com](mailto:zerkhefraouf90@gmail.com)
+
