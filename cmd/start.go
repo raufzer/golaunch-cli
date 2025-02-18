@@ -8,6 +8,12 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var startCmd = &cobra.Command{
+	Use:   "start",
+	Short: "Initialize the CLI by creating assets and config file",
+	Run:   startCommand,
+}
+
 func startCommand(cmd *cobra.Command, args []string) {
 	if _, err := os.Stat("assets"); os.IsNotExist(err) {
 		if err := os.Mkdir("assets", 0755); err != nil {
@@ -42,4 +48,8 @@ func startCommand(cmd *cobra.Command, args []string) {
 	}
 
 	fmt.Println("CLI initialized successfully! Use 'golaunch setup' to add commands.")
+}
+
+func init() {
+	rootCmd.AddCommand(startCmd)
 }
