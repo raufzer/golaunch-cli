@@ -5,11 +5,13 @@ import (
 	"golaunch-cli/internal/logger"
 
 	"github.com/spf13/cobra"
+
 )
 
 var logCmd = &cobra.Command{
-	Use:   "log",
-	Short: "Toggle logging of executed commands",
+	Use:     "log",
+	Short:   "Toggle logging of executed commands",
+	GroupID: "history",
 }
 
 var enableLogCmd = &cobra.Command{

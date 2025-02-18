@@ -7,15 +7,15 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-
 )
 
 var editCmd = &cobra.Command{
-	Use:   "edit <command>",
-	Short: "Edit the command configuration, e.g., change program paths",
-	Long:  `Edit the program paths associated with a specific command.`,
-	Args:  cobra.ExactArgs(1),
-	Run:   editCommand,
+	Use:     "edit <command>",
+	Short:   "Edit the command configuration, e.g., change program paths",
+	Long:    `Edit the program paths associated with a specific command.`,
+	Args:    cobra.ExactArgs(1),
+	Run:     editCommand,
+	GroupID: "core",
 }
 
 func editCommand(cmd *cobra.Command, args []string) {

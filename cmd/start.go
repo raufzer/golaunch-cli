@@ -9,9 +9,10 @@ import (
 )
 
 var startCmd = &cobra.Command{
-	Use:   "start",
-	Short: "Initialize the CLI by creating assets and config file",
-	Run:   startCommand,
+	Use:     "start",
+	Short:   "Initialize the CLI by creating assets and config file",
+	Run:     startCommand,
+	GroupID: "setup",
 }
 
 func startCommand(cmd *cobra.Command, args []string) {

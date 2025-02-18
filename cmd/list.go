@@ -12,6 +12,7 @@ var listCmd = &cobra.Command{
 	Short:   "List all existing commands",
 	Long:    `List all commands that have been set up in the configuration file.`,
 	Run:     listCommand,
+	GroupID: "core",
 }
 
 func listCommand(cmd *cobra.Command, args []string) {

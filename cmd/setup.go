@@ -14,6 +14,7 @@ var setupCmd = &cobra.Command{
 	Use:   "setup",
 	Short: "Set up custom commands and program paths",
 	Run:   setupCommand,
+	GroupID: "setup",
 }
 
 func setupCommand(cmd *cobra.Command, args []string) {

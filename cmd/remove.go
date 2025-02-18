@@ -6,15 +6,15 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
-
 )
 
 var removeCmd = &cobra.Command{
-	Use:   "remove <command>",
-	Short: "Remove a program from a specific command",
-	Long:  `Remove a program from a specific command by specifying the command name and selecting the program to remove.`,
-	Args:  cobra.ExactArgs(1),
-	Run:   removeProgramFromCommand,
+	Use:     "remove <command>",
+	Short:   "Remove a program from a specific command",
+	Long:    `Remove a program from a specific command by specifying the command name and selecting the program to remove.`,
+	Args:    cobra.ExactArgs(1),
+	Run:     removeProgramFromCommand,
+	GroupID: "core",
 }
 
 func removeProgramFromCommand(cmd *cobra.Command, args []string) {

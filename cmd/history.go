@@ -8,9 +8,10 @@ import (
 )
 
 var historyCmd = &cobra.Command{
-	Use:   "history",
-	Short: "Show the last used commands and timestamps",
-	Run:   historyCommand,
+	Use:     "history",
+	Short:   "Show the last used commands and timestamps",
+	Run:     historyCommand,
+	GroupID: "history",
 }
 
 func historyCommand(cmd *cobra.Command, args []string) {

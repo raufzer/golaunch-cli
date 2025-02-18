@@ -9,16 +9,16 @@ import (
 )
 
 var statusCmd = &cobra.Command{
-	Use:   "status <command>",
-	Short: "Check if the applications linked to a command are running",
-	Args:  cobra.ExactArgs(1),
-	Run:   statusCommand,
+	Use:     "status <command>",
+	Short:   "Check if the applications linked to a command are running",
+	Args:    cobra.ExactArgs(1),
+	Run:     statusCommand,
+	GroupID: "state",
 }
 
 func statusCommand(cmd *cobra.Command, args []string) {
 	command := args[0]
 
-	// Load config to get programs linked to the command
 	cfg, err := config.LoadConfig("assets/config.json")
 	if err != nil {
 		fmt.Printf("Failed to load config: %v\n", err)
@@ -31,7 +31,6 @@ func statusCommand(cmd *cobra.Command, args []string) {
 		return
 	}
 
-	// Check if each program is running
 	for _, program := range programs {
 		running, err := launcher.IsRunning(program)
 		if err != nil {

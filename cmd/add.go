@@ -10,11 +10,12 @@ import (
 )
 
 var addCmd = &cobra.Command{
-	Use:   "add <command>",
-	Short: "Add a new program to an existing custom command",
-	Long:  `Add a new program to an existing command by specifying the command name and the program path.`,
-	Args:  cobra.ExactArgs(1),
-	Run:   addProgramToCommand,
+	Use:     "add <command>",
+	Short:   "Add a new program to an existing custom command",
+	Long:    `Add a new program to an existing command by specifying the command name and the program path.`,
+	Args:    cobra.ExactArgs(1),
+	Run:     addProgramToCommand,
+	GroupID: "core",
 }
 
 func addProgramToCommand(cmd *cobra.Command, args []string) {

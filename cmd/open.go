@@ -9,11 +9,12 @@ import (
 )
 
 var openCmd = &cobra.Command{
-	Use:   "open <command>",
-	Short: "Open programs for a specific command",
-	Long:  `Open programs associated with a specific command by specifying the command name.`,
-	Args:  cobra.ExactArgs(1),
-	Run:   openCommand,
+	Use:     "open <command>",
+	Short:   "Open programs for a specific command",
+	Long:    `Open programs associated with a specific command by specifying the command name.`,
+	Args:    cobra.ExactArgs(1),
+	Run:     openCommand,
+	GroupID: "core",
 }
 
 func openCommand(cmd *cobra.Command, args []string) {

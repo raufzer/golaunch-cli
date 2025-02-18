@@ -4,14 +4,16 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
+
 )
 
-const Version = "1.1.0"
+const Version = "2.1.1"
 
 var versionCmd = &cobra.Command{
-	Use:   "version",
-	Short: "Show the current version of golaunch",
-	Run:   versionCommand,
+	Use:     "version",
+	Short:   "Show the current version of golaunch",
+	Run:     versionCommand,
+	GroupID: "misc",
 }
 
 func versionCommand(cmd *cobra.Command, args []string) {

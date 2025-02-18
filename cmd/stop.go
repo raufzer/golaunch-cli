@@ -9,16 +9,16 @@ import (
 )
 
 var stopCmd = &cobra.Command{
-	Use:   "stop <command>",
-	Short: "Close all applications linked to a command",
-	Args:  cobra.ExactArgs(1),
-	Run:   stopCommand,
+	Use:     "stop <command>",
+	Short:   "Close all applications linked to a command",
+	Args:    cobra.ExactArgs(1),
+	Run:     stopCommand,
+	GroupID: "state",
 }
 
 func stopCommand(cmd *cobra.Command, args []string) {
 	command := args[0]
 
-	// Load config to get programs linked to the command
 	cfg, err := config.LoadConfig("assets/config.json")
 	if err != nil {
 		fmt.Printf("Failed to load config: %v\n", err)
@@ -31,7 +31,6 @@ func stopCommand(cmd *cobra.Command, args []string) {
 		return
 	}
 
-	// Stop each program
 	for _, program := range programs {
 		if err := launcher.StopProgram(program); err != nil {
 			fmt.Printf("Error stopping %s: %v\n", program, err)
