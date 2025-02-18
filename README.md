@@ -11,6 +11,7 @@
 ## Features
 
 - **Custom Commands**: Define your own commands (e.g., `dev`, `design`) to launch multiple programs at once.
+- **Command Grouping**: Organizes commands into categories like Setup, Core, State, History, and Miscellaneous.
 - **Cross-Platform**: Works on Windows, macOS, and Linux.
 - **Easy Setup**: Interactive setup process to add programs and commands.
 - **Lightweight**: Built with Go, it’s fast and efficient.
@@ -67,6 +68,34 @@ Follow the prompts to:
 Use the `open` command to launch programs associated with a custom command:
 ```bash
 golaunch open dev
+```
+
+### View Available Commands & Groups
+```bash
+golaunch help
+```
+Example output:
+```
+Usage:
+  golaunch [command]
+
+Setup & Initialization:
+  setup      Set up custom commands and program paths
+
+Core Functionality:
+  open       Launch a predefined command group
+  list       Show available custom commands
+
+Program State:
+  status     Show the current state of GoLaunch
+
+History & Logging:
+  history    Show command execution history
+
+Miscellaneous:
+  version    Show the current version of GoLaunch
+
+Use "golaunch [command] --help" for more information about a command.
 ```
 
 ---
